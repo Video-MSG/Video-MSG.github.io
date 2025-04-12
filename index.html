@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Training-free Guidance in Text-to-Video Generation via Multimodal Planning and Structured Noise Initialization">
+  <meta name="keywords" content="video,video generation,training-free,structrual noise">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video-MSG</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Training-free Guidance in Text-to-Video Generation <br> via Multimodal Planning and Structured Noise Initialization</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jialuli-luka.github.io/">Jialu Li<sup>*</sup></a>
+            </span>, &nbsp;  
+              <span class="author-block">
+                <a href="https://yui010206.github.io/">Shoubin Yu<sup>*</sup></a>
+              </span>, &nbsp;  
+              <span class="author-block">
+                <a href="https://hl-hanlin.github.io">Han Lin<sup>*</sup></a>
+              </span>, &nbsp;
+
+              <span class="author-block">
+                <a href="https://j-min.io">Jaemin Cho</a>
+              </span>, &nbsp;
+
+              <span class="author-block">
+                <a href="https://jaehong31.github.io/">Jaehong Yoon</a>
+              </span>, &nbsp;
+
+              <span class="author-block">
+                <a href="https://www.cs.unc.edu/~mbansal/">Mohit Bansal</a>
+              </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">UNC Chapel Hill</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">*: equal contribution</span>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2309.15091"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/HL-hanlin/VideoDirectorGPT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+
+        <center>
+          <img src="./static/images/teaser.png" width="80%">
+        </center>  
+
+        <div class="content has-text-justified">
+
+          Recent advancements in text-to-video (T2V) diffusion mod- els have significantly enhanced the visual quality of the generated videos. However, even recent T2V models find it challenging to follow text descriptions accurately, especially when the prompt requires accurate control of spatial layouts or object trajectories. A recent line of research uses layout guidance for T2V models that require fine-tuning or iterative manipulation of the attention map during inference time. This significantly increases the memory requirement, making it difficult to adopt a large T2V model as a backbone. To address this, we introduce VIDEO-MSG, a training-free Guidance method for T2V generation based on Multimodal planning and Structured noise initialization. VIDEO-MSG consists of three steps, where in the first two steps, VIDEO-MSG creates VIDEO SKETCH, a fine-grained spatio-temporal plan for the final video, specifying background, foreground, and object trajectories, in the form of draft video frames. In the last step, VIDEO-MSG guides a downstream T2V diffusion model with VIDEO SKETCH through noise inversion and denoising. Notably, VIDEO-MSG does not need fine-tuning or attention manipulation with additional memory during inference time, making it easier to adopt large T2V models. VIDEO-MSG demonstrates its effectiveness in enhancing text alignment with multiple T2V backbones (VideoCrafter2 and CogVideoX-5B) on popular T2V generation bench- marks (T2VCompBench and VBench). We provide comprehensive ablation studies about noise inversion ratio, different background generators, background object detection, and foreground object segmentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+
+        <img src="./static/images/method.png" alt="Teaser" width="80%">
+        <div class="content has-text-justified">
+
+          We introduce VIDEO-MSG, Multimodal Sketch Guidance for video generation, a training-free guidance method for T2V generation based on multimodal planning and structured noise initialization. VIDEO-MSG consists of three stages (illustrated in Fig. 2):
+          1. Background planning, where we adopt T2I and I2V models to generate background image priors with natural animation.
+          2. Foreground Object Layout and Trajectory Planning, where we apply MLLM and object detectors to plan and place foreground objects into the background harmoniously.
+          3. Video Generation with Structured Noise Initialization, where the synthesized images derived from the above stages are used as VIDEO SKETCH for final video generation via inversion techniques.
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Visualization</h2>
+
+        <div class="content is-centered has-text-centered">
+          
+          <div class="content example">
+            <p class="example-prompt">Motion: An egg rolling from the right to left on the table.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/motion_1.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/motion_1.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+          <div class="content example">
+            <p class="example-prompt">Motion: A helicopter gracefully descending to land.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/motion_2.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/motion_2.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+          <div class="content example">
+            <p class="example-prompt">Numeracy: Three bears fish in a river surrounded by mountains.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/numeracy_1.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/numeracy_1.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+          <div class="content example">
+            <p class="example-prompt">Numeracy: Six penguins waddle together across an icy landscape.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/numeracy_2.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/numeracy_2.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+          <div class="content example">
+            <p class="example-prompt">Spatial: A gorilla sitting on the left side of a vending machine in a forest.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/spatial_1.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/spatial_1.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+          <div class="content example">
+            <p class="example-prompt">Spatial: A child building a sandcasle on the right of a beach umbrella.</p>
+            <div class="example-gifs">
+                <div>
+                  <p><b>CogVideoX-5B</b></p>
+                  <img src="./static/images/qualitative_examples/baseline_videos/spatial_2.gif" alt="Teaser" width="80%">
+                </div>
+                <div>
+                  <p><b>Our Video-MSG</b></p>
+                  <img src="./static/images/qualitative_examples/ours_videos/spatial_2.gif" alt="Teaser" width="80%">
+                </div>
+            </div>
+            <br>
+          </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quanlitative Results</h2>
+
+        <center>
+          <img src="./static/images/result.png" width="80%">
+        </center>  
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{li2025training,
+        author = {Jialu Li and Shoubin Yu and Han Lin and Jaemin Cho and Jaehong Yoon and Mohit Bansal},
+        title = {Training-free Guidance in Text-to-Video Generation via Multimodal Planning and Structured Noise Initialization},
+        year = {2025},
+        journal = {ArXiv},
+}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          The webpage was adapted from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
