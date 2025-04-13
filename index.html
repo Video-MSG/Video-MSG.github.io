@@ -118,15 +118,15 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-
         <center>
           <img src="./static/images/teaser.png" width="80%">
-        </center>  
+        </center>
+        
+        <h2 class="title is-3">Abstract</h2>
 
         <div class="content has-text-justified">
 
-          Recent advancements in text-to-video (T2V) diffusion mod- els have significantly enhanced the visual quality of the generated videos. However, even recent T2V models find it challenging to follow text descriptions accurately, especially when the prompt requires accurate control of spatial layouts or object trajectories. A recent line of research uses layout guidance for T2V models that require fine-tuning or iterative manipulation of the attention map during inference time. This significantly increases the memory requirement, making it difficult to adopt a large T2V model as a backbone. To address this, we introduce VIDEO-MSG, a training-free Guidance method for T2V generation based on Multimodal planning and Structured noise initialization. VIDEO-MSG consists of three steps, where in the first two steps, VIDEO-MSG creates VIDEO SKETCH, a fine-grained spatio-temporal plan for the final video, specifying background, foreground, and object trajectories, in the form of draft video frames. In the last step, VIDEO-MSG guides a downstream T2V diffusion model with VIDEO SKETCH through noise inversion and denoising. Notably, VIDEO-MSG does not need fine-tuning or attention manipulation with additional memory during inference time, making it easier to adopt large T2V models. VIDEO-MSG demonstrates its effectiveness in enhancing text alignment with multiple T2V backbones (VideoCrafter2 and CogVideoX-5B) on popular T2V generation bench- marks (T2VCompBench and VBench). We provide comprehensive ablation studies about noise inversion ratio, different background generators, background object detection, and foreground object segmentation.
+          Recent advancements in text-to-video (T2V) diffusion models have significantly enhanced the visual quality of the generated videos. However, even recent T2V models find it challenging to follow text descriptions accurately, especially when the prompt requires accurate control of spatial layouts or object trajectories. A recent line of research uses layout guidance for T2V models that require fine-tuning or iterative manipulation of the attention map during inference time. This significantly increases the memory requirement, making it difficult to adopt a large T2V model as a backbone. To address this, we introduce Video-MSG, a training-free Guidance method for T2V generation based on Multimodal planning and Structured noise initialization. Video-MSG consists of three steps, where in the first two steps, Video-MSG creates Video Sketch, a fine-grained spatio-temporal plan for the final video, specifying background, foreground, and object trajectories, in the form of draft video frames. In the last step, Video-MSG guides a downstream T2V diffusion model with Video Sketch through noise inversion and denoising. Notably, Video-MSG does not need fine-tuning or attention manipulation with additional memory during inference time, making it easier to adopt large T2V models. Video-MSG demonstrates its effectiveness in enhancing text alignment with multiple T2V backbones (VideoCrafter2 and CogVideoX-5B) on popular T2V generation benchmarks (T2VCompBench and VBench). We provide comprehensive ablation studies about noise inversion ratio, different background generators, background object detection, and foreground object segmentation.
           </p>
         </div>
       </div>
@@ -144,11 +144,10 @@
 
         <img src="./static/images/method.png" alt="Teaser" width="80%">
         <div class="content has-text-justified">
-
-          We introduce VIDEO-MSG, Multimodal Sketch Guidance for video generation, a training-free guidance method for T2V generation based on multimodal planning and structured noise initialization. VIDEO-MSG consists of three stages (illustrated in Fig. 2):
+          We introduce <b>Video-MSG</b>, <b>M</b>ultimodal <b>S</b>ketch <b>G</b>uidance for video generation, a training-free guidance method for T2V generation based on multimodal planning and structured noise initialization. Video-MSG consists of three stages (illustrated in Fig. 2):
           1. Background planning, where we adopt T2I and I2V models to generate background image priors with natural animation.
           2. Foreground Object Layout and Trajectory Planning, where we apply MLLM and object detectors to plan and place foreground objects into the background harmoniously.
-          3. Video Generation with Structured Noise Initialization, where the synthesized images derived from the above stages are used as VIDEO SKETCH for final video generation via inversion techniques.
+          3. Video Generation with Structured Noise Initialization, where the synthesized images derived from the above stages are used as Video Sketch for final video generation via inversion techniques.
           
         </div>
 
@@ -161,7 +160,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Visualization</h2>
+        <h2 class="title is-3">Qualitative Examples</h2>
 
         <div class="content is-centered has-text-centered">
           
@@ -266,7 +265,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Quanlitative Results</h2>
+        <h2 class="title is-3">Quantitative Results</h2>
 
         <center>
           <img src="./static/images/result.png" width="80%">
@@ -283,7 +282,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@article{li2025training,
+@article{li2025video-msg,
         author = {Jialu Li and Shoubin Yu and Han Lin and Jaemin Cho and Jaehong Yoon and Mohit Bansal},
         title = {Training-free Guidance in Text-to-Video Generation via Multimodal Planning and Structured Noise Initialization},
         year = {2025},
